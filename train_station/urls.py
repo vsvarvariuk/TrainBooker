@@ -1,5 +1,5 @@
 """
-URL configuration for train_station project.
+URL configuration for train_service project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -14,10 +14,48 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+import debug_toolbar
+
+from django.conf import settings
+from drf_spectacular.views import (SpectacularAPIView,
+                                   SpectacularSwaggerView,
+                                   SpectacularRedocView)
+from rest_framework_simplejwt.views import (TokenObtainPairView,
+                                            TokenRefreshView)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+
+    path("api/service/",
+         include("train_service.urls", namespace="ticket_train")),
+
+    path('api/schema/',
+         SpectacularAPIView.as_view(),
+         name='schema'),
+    # Optional UI:
+
+    path('api/schema/swagger-ui/',
+         SpectacularSwaggerView.as_view(url_name='schema'),
+         name='swagger-ui'),
+
+    path('api/schema/redoc/',
+         SpectacularRedocView.as_view(url_name='schema'),
+         name='redoc'),
+
+    path("api/token/",
+         TokenObtainPairView.as_view(),
+         name="token_obtain_pair"),
+
+    path("api/token/refresh/",
+         TokenRefreshView.as_view(),
+         name="token_refresh"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += [path("__debug__/", include(debug_toolbar.urls))]
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+    )
