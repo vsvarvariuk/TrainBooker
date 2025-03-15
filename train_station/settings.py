@@ -112,7 +112,11 @@ REST_FRAMEWORK = {
     "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
 
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+
+    "DEFAULT_PERMISSION_CLASSES": [
+        "train_service.permissions.IsAdminOrIsAuthenticatedReadOnly",
+    ],
 
     "DEFAULT_THROTTLE_CLASSES": [
        "rest_framework.throttling.AnonRateThrottle",
