@@ -6,7 +6,7 @@ from rest_framework import status
 from rest_framework.reverse import reverse
 from rest_framework.test import APIClient
 
-from ticket_train.models import (Route, Station,
+from train_service.models import (Route, Station,
                                  City, TrainType,
                                  Train, Journey, Crew)
 
