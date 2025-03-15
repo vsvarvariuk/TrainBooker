@@ -32,7 +32,7 @@ urlpatterns = [
     path("api/service/",
          include("train_service.urls", namespace="train_service")),
 
-    path("api/user",
+    path("api/user/",
          include("user.urls", namespace="user")),
 
     path('api/schema/',

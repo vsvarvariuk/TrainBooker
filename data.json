@@ -1,0 +1,92 @@
+[
+    {
+        "model": "train_service.traintype",
+        "pk": 1,
+        "fields": {"name": "Freight"}
+    },
+    {
+        "model": "train_service.traintype",
+        "pk": 2,
+        "fields": {"name": "Passenger"}
+    },
+    {
+        "model": "train_service.train",
+        "pk": 1,
+        "fields": {
+            "name": "Express 101",
+            "cargo_num": 20,
+            "places_in_cargo": 4,
+            "train_type": 2
+        }
+    },
+    {
+        "model": "train_service.train",
+        "pk": 2,
+        "fields": {
+            "name": "CargoMaster",
+            "cargo_num": 25,
+            "places_in_cargo": 5,
+            "train_type": 1
+        }
+    },
+    {
+        "model": "train_service.crew",
+        "pk": 1,
+        "fields": {"first_name": "John", "last_name": "Doe"}
+    },
+    {
+        "model": "train_service.crew",
+        "pk": 2,
+        "fields": {"first_name": "Alice", "last_name": "Smith"}
+    },
+    {
+        "model": "train_service.city",
+        "pk": 1,
+        "fields": {"name": "Kyiv"}
+    },
+    {
+        "model": "train_service.city",
+        "pk": 2,
+        "fields": {"name": "Lviv"}
+    },
+    {
+        "model": "train_service.station",
+        "pk": 1,
+        "fields": {
+            "name": "Kyiv Central",
+            "latitude": 50.4501,
+            "longitude": 30.5234,
+            "city": 1
+        }
+    },
+    {
+        "model": "train_service.station",
+        "pk": 2,
+        "fields": {
+            "name": "Lviv Main",
+            "latitude": 49.8397,
+            "longitude": 24.0297,
+            "city": 2
+        }
+    },
+    {
+        "model": "train_service.route",
+        "pk": 1,
+        "fields": {
+            "source": 1,
+            "destination": 2,
+            "distance": 540
+        }
+    },
+    {
+        "model": "train_service.journey",
+        "pk": 1,
+        "fields": {
+            "route": 1,
+            "train": 1,
+            "departure_time": "2025-03-20T08:00:00Z",
+            "arrival_time": "2025-03-20T14:00:00Z",
+            "crew": [1, 2]
+        }
+    }
+]

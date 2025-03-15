@@ -97,7 +97,9 @@ DATABASES = {
 #         "PORT": os.environ["POSTGRES_PORT"],
 #     }
 # }
-
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
