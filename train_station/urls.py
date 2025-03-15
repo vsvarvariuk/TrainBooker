@@ -30,7 +30,10 @@ urlpatterns = [
     path("admin/", admin.site.urls),
 
     path("api/service/",
-         include("train_service.urls", namespace="ticket_train")),
+         include("train_service.urls", namespace="train_service")),
+
+    path("api/user",
+         include("user.urls", namespace="user")),
 
     path('api/schema/',
          SpectacularAPIView.as_view(),
