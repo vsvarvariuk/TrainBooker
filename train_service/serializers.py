@@ -149,7 +149,7 @@ class TicketSerializer(serializers.ModelSerializer):
         cargo_num = journey.train.cargo_num
 
         Ticket.validate_data(
-            seat, cargo, cargo_num, places_in_cargo,
+            cargo, seat, cargo_num, places_in_cargo,
             serializers.ValidationError
         )
         return attr

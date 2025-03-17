@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -87,16 +87,7 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": os.environ["POSTGRES_DB"],
-#         "USER": os.environ["POSTGRES_USER"],
-#         "PASSWORD": os.environ["POSTGRES_PASSWORD"],
-#         "HOST": os.environ["POSTGRES_HOST"],
-#         "PORT": os.environ["POSTGRES_PORT"],
-#     }
-# }
+
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
